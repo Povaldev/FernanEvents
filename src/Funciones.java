@@ -1,16 +1,15 @@
 import java.util.Scanner;
 
 public class Funciones {
-    String nombreE1, descripcionE1, categoriaE1, fechaE1, horaE1,
+    public String nombreE1, descripcionE1, categoriaE1, fechaE1, horaE1,
     nombreE2, descripcionE2, categoriaE2, fechaE2, horaE2,
     nombreE3, descripcionE3, categoriaE3, fechaE3, horaE3;
 
     //Duda tipo de eventos
 
-    int aforoE1, numInscritosE1, aforoE2, numInscritosE2, aforoE3, numInscritosE3;
+    public int aforoE1, numInscritosE1, personasInscritasE1, aforoE2, numInscritosE2, personasInscritasE2, aforoE3, numInscritosE3, personasInscritasE3;
 
-    boolean e1Creado, e2Creado, e3Creado;
-
+    public boolean e1Creado, e2Creado, e3Creado;
 
     public static void muestraCategoria(){
         System.out.println("Introduce la categoría del evento");
@@ -23,11 +22,7 @@ public class Funciones {
         System.out.println("7. Moda");
     }
 
-    public static void creaEventos(String nombreE1, String descripcionE1, String categoriaE1, String fechaE1, String horaE1,
-                                   String nombreE2, String descripcionE2, String categoriaE2, String fechaE2, String horaE2,
-                                   String nombreE3, String descripcionE3, String categoriaE3, String fechaE3, String horaE3,
-                                   int aforoE1, int aforoE2, int aforoE3,
-                                   boolean e1Creado, boolean e2Creado, boolean e3Creado){
+    public void creaEventos(){
         Scanner s = new Scanner(System.in);
         if (!e1Creado){
             System.out.print("Introduce el nombre del evento: ");
@@ -110,7 +105,7 @@ public class Funciones {
         }
     }
 
-    public static void eliminaEventos(int peticionEventoBorrar, boolean e1Creado, boolean e2Creado, boolean e3Creado){
+    public void eliminaEventos(int peticionEventoBorrar){
         switch (peticionEventoBorrar){
             case 1 -> e1Creado = false;
             case 2 -> e2Creado = false;
@@ -120,22 +115,51 @@ public class Funciones {
         }
     }
 
-    public static void muestraEventos(int peticionMuestraEvento, String nombreE1, String descripcionE1, String categoriaE1, String fechaE1, String horaE1,
-                                      String nombreE2, String descripcionE2, String categoriaE2, String fechaE2, String horaE2,
-                                      String nombreE3, String descripcionE3, String categoriaE3, String fechaE3, String horaE3,
-                                      int aforoE1, int aforoE2, int aforoE3,
-                                      boolean e1Creado, boolean e2Creado, boolean e3Creado){
+    public void muestraEvento(int peticionMuestraEvento){
 
         switch (peticionMuestraEvento){
-            case 1: e1Creado = false;
-
+            case 1:
+                System.out.println("***** " + nombreE1 + " *****");
+                System.out.println("Descripción: " + descripcionE1);
+                System.out.println("Categoría: " + categoriaE1);
+                System.out.println("Fecha: " + fechaE1 + " Hora " + horaE1);
+                System.out.println("Aforo máximo " + aforoE1);
+                System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE1);
+                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                System.out.print("******");
+                for (int i = 0; i < nombreE1.length(); i++) System.out.print("*");
+                System.out.println("******");
+                break;
+            case 2:
+                System.out.println("***** " + nombreE2 + " *****");
+                System.out.println("Descripción: " + descripcionE2);
+                System.out.println("Categoría: " + categoriaE2);
+                System.out.println("Fecha: " + fechaE2 + " Hora " + horaE2);
+                System.out.println("Aforo máximo " + aforoE2);
+                System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE2);
+                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                System.out.print("******");
+                for (int i = 0; i < nombreE2.length(); i++) System.out.print("*");
+                System.out.println("******");
+                break;
+            case 3:
+                System.out.println("***** " + nombreE3 + " *****");
+                System.out.println("Descripción: " + descripcionE3);
+                System.out.println("Categoría: " + categoriaE3);
+                System.out.println("Fecha: " + fechaE3 + " Hora " + horaE3);
+                System.out.println("Aforo máximo " + aforoE3);
+                System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE3);
+                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                System.out.print("******");
+                for (int i = 0; i < nombreE3.length(); i++) System.out.print("*");
+                System.out.println("******");
+                break;
             case 4:
                 System.out.println("Saliendo...");
                 break;
             default: System.out.println("Debes de introducir las opciones que hay en pantalla");
             break;
         }
-
     }
 
 }

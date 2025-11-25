@@ -5,8 +5,6 @@ public class Funciones {
     nombreE2, descripcionE2, categoriaE2, fechaE2, horaE2,
     nombreE3, descripcionE3, categoriaE3, fechaE3, horaE3;
 
-    //Duda tipo de eventos
-
     public int aforoE1, numInscritosE1, personasInscritasE1, aforoE2, numInscritosE2, personasInscritasE2, aforoE3, numInscritosE3, personasInscritasE3;
 
     public boolean e1Creado, e2Creado, e3Creado;
@@ -111,7 +109,7 @@ public class Funciones {
             case 2 -> e2Creado = false;
             case 3 -> e3Creado = false;
             case 4 -> System.out.println("Saliendo...");
-            default -> System.out.println("Debes de introducir las opciones que hay en pantalla");
+            default -> System.out.println("Debes de introducir alguna de las opciones que hay en pantalla");
         }
     }
 
@@ -211,7 +209,7 @@ public class Funciones {
                 System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
                 break;
             default:
-                System.out.println("");
+                System.out.println();
                 break;
         }
 

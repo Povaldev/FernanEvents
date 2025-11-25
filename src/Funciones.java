@@ -125,7 +125,7 @@ public class Funciones {
                 System.out.println("Fecha: " + fechaE1 + " Hora " + horaE1);
                 System.out.println("Aforo máximo " + aforoE1);
                 System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE1);
-                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                vistaDetalladaEvento(1);
                 System.out.print("******");
                 for (int i = 0; i < nombreE1.length(); i++) System.out.print("*");
                 System.out.println("******");
@@ -137,7 +137,7 @@ public class Funciones {
                 System.out.println("Fecha: " + fechaE2 + " Hora " + horaE2);
                 System.out.println("Aforo máximo " + aforoE2);
                 System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE2);
-                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                vistaDetalladaEvento(2);
                 System.out.print("******");
                 for (int i = 0; i < nombreE2.length(); i++) System.out.print("*");
                 System.out.println("******");
@@ -149,7 +149,7 @@ public class Funciones {
                 System.out.println("Fecha: " + fechaE3 + " Hora " + horaE3);
                 System.out.println("Aforo máximo " + aforoE3);
                 System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE3);
-                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                vistaDetalladaEvento(3);
                 System.out.print("******");
                 for (int i = 0; i < nombreE3.length(); i++) System.out.print("*");
                 System.out.println("******");
@@ -162,7 +162,62 @@ public class Funciones {
         }
     }
 
-    public void configuracionAsistente(){
+    public void vistaDetalladaEvento(int peticionEvento){
+        int porcentajeOcupacion;
+        switch (peticionEvento){
+            case 1:
+                porcentajeOcupacion = (numInscritosE1*100)/aforoE1;
+                System.out.println("════════════════════");
+                System.out.print("║");
+                for (int i = 0; i < porcentajeOcupacion/5; i++) {
+                    System.out.print("█");
+                }
+                for (int i = 0; i < (100-porcentajeOcupacion)/5; i++) {
+                    System.out.print(" ");
+                }
+                System.out.print("║");
+                System.out.println(porcentajeOcupacion + "% de Ocupación");
+                System.out.println("════════════════════");
+                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                break;
+            case 2:
+                porcentajeOcupacion = (numInscritosE2*100)/aforoE2;
+                System.out.println("════════════════════");
+                System.out.print("║");
+                for (int i = 0; i < porcentajeOcupacion/5; i++) {
+                    System.out.print("█");
+                }
+                for (int i = 0; i < (100-porcentajeOcupacion)/5; i++) {
+                    System.out.print(" ");
+                }
+                System.out.print("║");
+                System.out.println(porcentajeOcupacion + "% de Ocupación");
+                System.out.println("════════════════════");
+                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                break;
+            case 3:
+                porcentajeOcupacion = (numInscritosE3*100)/aforoE3;
+                System.out.println("════════════════════");
+                System.out.print("║");
+                for (int i = 0; i < porcentajeOcupacion/5; i++) {
+                    System.out.print("█");
+                }
+                for (int i = 0; i < (100-porcentajeOcupacion)/5; i++) {
+                    System.out.print(" ");
+                }
+                System.out.print("║");
+                System.out.println(porcentajeOcupacion + "% de Ocupación");
+                System.out.println("════════════════════");
+                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                break;
+            default:
+                System.out.println("");
+                break;
+        }
+
+    }
+
+    public void configuracionUsuario(){
         Scanner s = new Scanner(System.in);
         System.out.println("**** CONFIGURACIÓN ****");
         System.out.println("1. Cambio de nombre de usuario");

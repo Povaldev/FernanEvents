@@ -155,11 +155,33 @@ public class Funciones {
                 System.out.println("******");
                 break;
             case 4:
-                System.out.println("Saliendo...");
+                System.out.println("Saliendo...\n");
                 break;
             default: System.out.println("Debes de introducir las opciones que hay en pantalla");
             break;
         }
     }
 
+    public void configuracionAsistente(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("**** CONFIGURACIÓN ****");
+        System.out.println("1. Cambio de nombre de usuario");
+        System.out.println("2. Cambio de contraseña");
+        System.out.println("3. Salir");
+        int opcion = s.nextInt();
+        switch (opcion) {
+            case 1:
+                // Cambio de nombre de usuario
+                break;
+            case 2:
+                // Cambio de contraseña
+                break;
+            case 3:
+                System.out.println("Saliendo...\n");
+                break;
+            default:
+                System.out.println("Introduce una opción correctamente");
+                break;
+        }
+    }
 }

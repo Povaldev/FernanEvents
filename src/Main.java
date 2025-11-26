@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main() {
         System.out.println("" +
                 "███████╗███████╗██████╗  ███╗   ██╗ █████╗ ███╗   ██╗\n" +
@@ -272,7 +273,9 @@ public class Main {
                                             Funciones.muestraEventos();
                                             System.out.println("¿Desea inscribirse a algún evento? (s/n)");
                                             String opcion = sc.nextLine();
-                                            if (opcion.equals("s")) Funciones.inscripcionEventoPago();
+                                            if (opcion.equals("s")){
+                                                carteraAsistente1 -= Funciones.inscripcionEventoPago(carteraAsistente1);
+                                            }
                                             break;
                                         case 3:
                                             switch (Funciones.menuCartera()){
@@ -367,6 +370,12 @@ public class Main {
                                         case 1:
                                             break;
                                         case 2:
+                                            Funciones.muestraEventos();
+                                            System.out.println("¿Desea inscribirse a algún evento? (s/n)");
+                                            String opcion = sc.nextLine();
+                                            if (opcion.equals("s")){
+                                                carteraAsistente2 -= Funciones.inscripcionEventoPago(carteraAsistente2);
+                                            }
                                             break;
                                         case 3:
                                             switch (Funciones.menuCartera()){

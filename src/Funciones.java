@@ -328,6 +328,29 @@ public class Funciones {
         }
     }
 
+    public static void vistaEntradasYPrecios(int peticionEvento){
+        switch (peticionEvento){
+            case 1:
+                System.out.println("Tipo de entradas y precio: ");
+                System.out.println("1. Entrada General: " + precioGeneralE1);
+                if (entradaPremiumE1) System.out.println("2. Entrada Premium: " + precioPremiumE1);
+                if (entradaVIPE1) System.out.println("3. Entrada VIP: " + precioVIPE1);
+                break;
+            case 2:
+                System.out.println("Tipo de entradas y precio: ");
+                System.out.println("1. Entrada General: " + precioGeneralE2);
+                if (entradaPremiumE2) System.out.println("2. Entrada Premium: " + precioPremiumE2);
+                if (entradaVIPE2) System.out.println("3. Entrada VIP: " + precioVIPE2);
+                break;
+            case 3:
+                System.out.println("Tipo de entradas y precio: ");
+                System.out.println("1. Entrada General: " + precioGeneralE3);
+                if (entradaPremiumE3) System.out.println("2. Entrada Premium: " + precioPremiumE3);
+                if (entradaVIPE3) System.out.println("3. Entrada VIP: " + precioVIPE3);
+                break;
+        }
+    }
+
     public static void vistaDetalladaEvento(int peticionEvento) {
         int porcentajeOcupacion;
         switch (peticionEvento) {
@@ -345,10 +368,7 @@ public class Funciones {
                 System.out.println(porcentajeOcupacion + "% de Ocupación");
                 System.out.println("════════════════════");
                 System.out.println();
-                System.out.println("Tipo de entradas y precio: ");
-                System.out.println("Entrada General: " + precioGeneralE1);
-                if (entradaPremiumE1) System.out.println("Entrada Premium: " + precioPremiumE1);
-                if (entradaVIPE1) System.out.println("Entrada VIP: " + precioVIPE1);
+                vistaEntradasYPrecios(1);
                 break;
 
             case 2:
@@ -365,10 +385,7 @@ public class Funciones {
                 System.out.println(porcentajeOcupacion + "% de Ocupación");
                 System.out.println("════════════════════");
                 System.out.println();
-                System.out.println("Tipo de entradas y precio: ");
-                System.out.println("Entrada General: " + precioGeneralE2);
-                if (entradaPremiumE2) System.out.println("Entrada Premium: " + precioPremiumE2);
-                if (entradaVIPE2) System.out.println("Entrada VIP: " + precioVIPE2);
+                vistaEntradasYPrecios(2);
                 break;
 
             case 3:
@@ -385,10 +402,7 @@ public class Funciones {
                 System.out.println(porcentajeOcupacion + "% de Ocupación");
                 System.out.println("════════════════════");
                 System.out.println();
-                System.out.println("Tipo de entradas y precio: ");
-                System.out.println("Entrada General: " + precioGeneralE3);
-                if (entradaPremiumE3) System.out.println("Entrada Premium: " + precioPremiumE3);
-                if (entradaVIPE3) System.out.println("Entrada VIP: " + precioVIPE3);
+                vistaEntradasYPrecios(3);
                 break;
 
             default:
@@ -397,20 +411,151 @@ public class Funciones {
         }
     }
 
-    public static void inscripcionEventoPago() {
+    public static int inscripcionEventoPago(int carteraAsistente) {
         Scanner s = new Scanner(System.in);
+        int seleccionUsuario;
+        String respuesta = "";
         System.out.println("**** INSCRIPCIÓN A EVENTO DE PAGO ****");
         System.out.println("¿Desea volver a ver todos los eventos a los que puede inscribirse? (s/n)");
-        String opcion = s.nextLine();
+        String opcion = s.next();
         if (opcion.equals("s")) muestraEventos();
         System.out.println("¿A que evento desea inscribirse?");
         System.out.println("1. " + nombreE1);
         System.out.println("2. " + nombreE2);
         System.out.println("3. " + nombreE3);
-        opcion = s.nextLine();
-        switch (opcion) {
-
+        int opc = s.nextInt();
+        switch (opc) {
+            case 1:
+                System.out.println("Seleccione la entrada que desea:");
+                vistaEntradasYPrecios(1);
+                seleccionUsuario = s.nextInt();
+                switch (seleccionUsuario){
+                    case 1:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE1 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioGeneralE1){
+                                carteraAsistente -= precioGeneralE1;
+                                personasInscritasE1++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                    case 2:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE1 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioPremiumE1){
+                                carteraAsistente -= precioPremiumE1;
+                                personasInscritasE1++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                    case 3:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE1 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioVIPE1){
+                                carteraAsistente -= precioVIPE1;
+                                personasInscritasE1++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                }
+                break;
+            case 2:
+                System.out.println("Seleccione la entrada que desea:");
+                vistaEntradasYPrecios(2);
+                seleccionUsuario = s.nextInt();
+                switch (seleccionUsuario){
+                    case 1:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE2 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioGeneralE2){
+                                carteraAsistente -= precioGeneralE2;
+                                personasInscritasE2++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                    case 2:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE2 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioPremiumE2){
+                                carteraAsistente -= precioPremiumE2;
+                                personasInscritasE2++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                    case 3:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE2 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioVIPE2){
+                                carteraAsistente -= precioVIPE2;
+                                personasInscritasE2++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                }
+                break;
+            case 3:
+                System.out.println("Seleccione la entrada que desea:");
+                vistaEntradasYPrecios(3);
+                seleccionUsuario = s.nextInt();
+                switch (seleccionUsuario){
+                    case 1:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE3 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioGeneralE3){
+                                carteraAsistente -= precioGeneralE3;
+                                personasInscritasE3++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                    case 2:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE3 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioPremiumE3){
+                                carteraAsistente -= precioPremiumE3;
+                                personasInscritasE3++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                    case 3:
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE3 + " de su cartera (s/n)");
+                        respuesta = s.next();
+                        if (respuesta.equals("s")){
+                            if (carteraAsistente>precioVIPE3){
+                                carteraAsistente -= precioVIPE3;
+                                personasInscritasE3++;
+                            } else {
+                                System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
+                            }
+                        }
+                        break;
+                }
+                break;
         }
+        return carteraAsistente;
     }
 
 

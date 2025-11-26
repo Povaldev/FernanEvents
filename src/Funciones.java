@@ -1,13 +1,15 @@
 import java.util.Scanner;
 
 public class Funciones {
-    public String nombreE1, descripcionE1, categoriaE1, fechaE1, horaE1,
+    public static String nombreE1, descripcionE1, categoriaE1, fechaE1, horaE1,
             nombreE2, descripcionE2, categoriaE2, fechaE2, horaE2,
             nombreE3, descripcionE3, categoriaE3, fechaE3, horaE3;
 
-    public int aforoE1, numInscritosE1, personasInscritasE1, aforoE2, numInscritosE2, personasInscritasE2, aforoE3, numInscritosE3, personasInscritasE3;
+    public static int aforoE1, numInscritosE1, personasInscritasE1, aforoE2, numInscritosE2, personasInscritasE2, aforoE3, numInscritosE3, personasInscritasE3;
 
-    public boolean e1Creado, e2Creado, e3Creado;
+    public static int precioGeneralE1, precioPremiumE1, precioVIPE1, precioGeneralE2, precioPremiumE2, precioVIPE2, precioGeneralE3, precioPremiumE3, precioVIPE3;
+
+    public static boolean e1Creado, entradaGeneralE1, entradaPremiumE1, entradaVIPE1, e2Creado, entradaGeneralE2, entradaPremiumE2, entradaVIPE2, e3Creado, entradaGeneralE3, entradaPremiumE3, entradaVIPE3;
 
     public static void muestraCategoria() {
         System.out.println("Introduce la categoría del evento");
@@ -18,6 +20,104 @@ public class Funciones {
         System.out.println("5. Juegos");
         System.out.println("6. Comida");
         System.out.println("7. Moda");
+    }
+
+    public static void tipoEntradas(int eventoCorrespondiente){
+        Scanner s = new Scanner(System.in);
+        int opcion;
+        do{
+            System.out.println("Selecciona los tipos de entradas que podrá tener este evento (Debes de seleccionar al menos 1)");
+            System.out.println("1. General");
+            System.out.println("2. General y Premium");
+            System.out.println("3. General, Premium y VIP");
+            opcion = s.nextInt();
+            if ((opcion > 3) || (opcion < 1)) System.out.println("Debes introducir algunas de las opciones correspondientes");
+        } while ((opcion > 3) || (opcion < 1));
+
+        System.out.println("Introduce los precios de cada entrada: ");
+        switch (eventoCorrespondiente){
+            case 1:
+                switch (opcion){
+                    case 1:
+                        entradaGeneralE1 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE1 = s.nextInt();
+                        break;
+                    case 2:
+                        entradaGeneralE1 = true;
+                        entradaPremiumE1 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE1 = s.nextInt();
+                        System.out.println("Precio Premium:");
+                        precioPremiumE1 = s.nextInt();
+                        break;
+                    case 3:
+                        entradaGeneralE1 = true;
+                        entradaPremiumE1 = true;
+                        entradaVIPE1 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE1 = s.nextInt();
+                        System.out.println("Precio Premium:");
+                        precioPremiumE1 = s.nextInt();
+                        System.out.println("Precio VIP:");
+                        precioVIPE1 = s.nextInt();
+                }
+                break;
+            case 2:
+                switch (opcion){
+                    case 1:
+                        entradaGeneralE2 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE2 = s.nextInt();
+                        break;
+                    case 2:
+                        entradaGeneralE2 = true;
+                        entradaPremiumE2 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE2 = s.nextInt();
+                        System.out.println("Precio Premium:");
+                        precioPremiumE2 = s.nextInt();
+                        break;
+                    case 3:
+                        entradaGeneralE2 = true;
+                        entradaPremiumE2 = true;
+                        entradaVIPE2 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE2 = s.nextInt();
+                        System.out.println("Precio Premium:");
+                        precioPremiumE2 = s.nextInt();
+                        System.out.println("Precio VIP:");
+                        precioVIPE2 = s.nextInt();
+                }
+                break;
+            case 3:
+                switch (opcion){
+                    case 1:
+                        entradaGeneralE3 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE3 = s.nextInt();
+                        break;
+                    case 2:
+                        entradaGeneralE3 = true;
+                        entradaPremiumE3 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE3 = s.nextInt();
+                        System.out.println("Precio Premium:");
+                        precioPremiumE3 = s.nextInt();
+                        break;
+                    case 3:
+                        entradaGeneralE3 = true;
+                        entradaPremiumE3 = true;
+                        entradaVIPE3 = true;
+                        System.out.println("Precio General:");
+                        precioGeneralE3 = s.nextInt();
+                        System.out.println("Precio Premium:");
+                        precioPremiumE3 = s.nextInt();
+                        System.out.println("Precio VIP:");
+                        precioVIPE3 = s.nextInt();
+                }
+                break;
+        }
     }
 
     public void creaEventos() {
@@ -45,8 +145,8 @@ public class Funciones {
             horaE1 = s.next();
             System.out.print("Introduce el aforo máximo permitido del evento: ");
             aforoE1 = s.nextInt();
+            tipoEntradas(1);
             e1Creado = true;
-
 
         } else if (!e2Creado) {
             System.out.print("Introduce el nombre del evento: ");
@@ -71,6 +171,7 @@ public class Funciones {
             horaE2 = s.next();
             System.out.print("Introduce el aforo máximo permitido del evento: ");
             aforoE2 = s.nextInt();
+            tipoEntradas(2);
             e2Creado = true;
 
 
@@ -97,6 +198,7 @@ public class Funciones {
             horaE3 = s.next();
             System.out.print("Introduce el aforo máximo permitido del evento: ");
             aforoE3 = s.nextInt();
+            tipoEntradas(3);
             e3Creado = true;
         } else {
             System.out.println("Se ha llegado al límite de eventos, no se pueden crear más");
@@ -113,10 +215,8 @@ public class Funciones {
         }
     }
 
-    public void muestraEvento(int peticionMuestraEvento) {
+    public static void muestraEventos() {
 
-        switch (peticionMuestraEvento) {
-            case 1:
                 System.out.println("***** " + nombreE1 + " *****");
                 System.out.println("Descripción: " + descripcionE1);
                 System.out.println("Categoría: " + categoriaE1);
@@ -127,8 +227,7 @@ public class Funciones {
                 System.out.print("******");
                 for (int i = 0; i < nombreE1.length(); i++) System.out.print("*");
                 System.out.println("******");
-                break;
-            case 2:
+                
                 System.out.println("***** " + nombreE2 + " *****");
                 System.out.println("Descripción: " + descripcionE2);
                 System.out.println("Categoría: " + categoriaE2);
@@ -139,8 +238,7 @@ public class Funciones {
                 System.out.print("******");
                 for (int i = 0; i < nombreE2.length(); i++) System.out.print("*");
                 System.out.println("******");
-                break;
-            case 3:
+
                 System.out.println("***** " + nombreE3 + " *****");
                 System.out.println("Descripción: " + descripcionE3);
                 System.out.println("Categoría: " + categoriaE3);
@@ -151,17 +249,10 @@ public class Funciones {
                 System.out.print("******");
                 for (int i = 0; i < nombreE3.length(); i++) System.out.print("*");
                 System.out.println("******");
-                break;
-            case 4:
-                System.out.println("Saliendo...\n");
-                break;
-            default:
-                System.out.println("Debes de introducir las opciones que hay en pantalla");
-                break;
-        }
+
     }
 
-    public void vistaDetalladaEvento(int peticionEvento) {
+    public static void vistaDetalladaEvento(int peticionEvento) {
         int porcentajeOcupacion;
         switch (peticionEvento) {
             case 1:
@@ -177,8 +268,13 @@ public class Funciones {
                 System.out.print("║");
                 System.out.println(porcentajeOcupacion + "% de Ocupación");
                 System.out.println("════════════════════");
-                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                System.out.println();
+                System.out.println("Tipo de entradas y precio: ");
+                System.out.println("Entrada General: " + precioGeneralE1);
+                if (entradaPremiumE1) System.out.println("Entrada Premium: " + precioPremiumE1);
+                if (entradaVIPE1) System.out.println("Entrada VIP: " + precioVIPE1);
                 break;
+
             case 2:
                 porcentajeOcupacion = (numInscritosE2 * 100) / aforoE2;
                 System.out.println("════════════════════");
@@ -192,8 +288,13 @@ public class Funciones {
                 System.out.print("║");
                 System.out.println(porcentajeOcupacion + "% de Ocupación");
                 System.out.println("════════════════════");
-                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                System.out.println();
+                System.out.println("Tipo de entradas y precio: ");
+                System.out.println("Entrada General: " + precioGeneralE2);
+                if (entradaPremiumE2) System.out.println("Entrada Premium: " + precioPremiumE2);
+                if (entradaVIPE2) System.out.println("Entrada VIP: " + precioVIPE2);
                 break;
+
             case 3:
                 porcentajeOcupacion = (numInscritosE3 * 100) / aforoE3;
                 System.out.println("════════════════════");
@@ -207,18 +308,22 @@ public class Funciones {
                 System.out.print("║");
                 System.out.println(porcentajeOcupacion + "% de Ocupación");
                 System.out.println("════════════════════");
-                System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
-                System.out.println("¿Desea inscribirse a algún evento de pago? (s/n):");
-                break;
-            default:
                 System.out.println();
+                System.out.println("Tipo de entradas y precio: ");
+                System.out.println("Entrada General: " + precioGeneralE3);
+                if (entradaPremiumE3) System.out.println("Entrada Premium: " + precioPremiumE3);
+                if (entradaVIPE3) System.out.println("Entrada VIP: " + precioVIPE3);
+                break;
+
+            default:
+                System.out.println("ERROR");
                 break;
         }
     }
 
     public void inscripcionEventoPago() {
         System.out.println("**** INSCRIPCIÓN A EVENTO DE PAGO ****");
-        System.out.println("El coste al evento seleccionado según el tipo de entrada seleccionado es de: "/* + Precio de la entrada */);
+        System.out.println("El coste al evento seleccionado es de: "/* + Precio de la entrada */);
     }
 
     public void configuracionUsuario() {

@@ -53,9 +53,6 @@ public class Main {
 
             switch (Funciones.menuGeneral()){
                 case 1:
-
-
-
                     do {
                         System.out.println("Escribe el usuario administrador");
                         String usuarioIntroducidoAdmin= sc.next();
@@ -88,9 +85,17 @@ public class Main {
 
                                         break;
                                     case 2:
+                                        if (Funciones.e1Creado){
+                                            Funciones.muestraEventos();
+                                        }
+                                        if (Funciones.e2Creado){
+                                            Funciones.muestraEventos();
+                                        }
+                                        if (Funciones.e3Creado){
+                                            Funciones.muestraEventos();
+                                        }
                                         break;
                                     case 3:
-
 
                                         switch (Funciones.menuCartera()){
 
@@ -432,9 +437,6 @@ public class Main {
                         }while (bloqueoAsistente2!=3 && salirAsistente2!=1);
 
                     }
-
-
-
 
                     break;
                 case 5:

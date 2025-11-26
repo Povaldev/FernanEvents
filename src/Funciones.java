@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class Funciones {
     public String nombreE1, descripcionE1, categoriaE1, fechaE1, horaE1,
-    nombreE2, descripcionE2, categoriaE2, fechaE2, horaE2,
-    nombreE3, descripcionE3, categoriaE3, fechaE3, horaE3;
+            nombreE2, descripcionE2, categoriaE2, fechaE2, horaE2,
+            nombreE3, descripcionE3, categoriaE3, fechaE3, horaE3;
 
     public int aforoE1, numInscritosE1, personasInscritasE1, aforoE2, numInscritosE2, personasInscritasE2, aforoE3, numInscritosE3, personasInscritasE3;
 
     public boolean e1Creado, e2Creado, e3Creado;
 
-    public static void muestraCategoria(){
+    public static void muestraCategoria() {
         System.out.println("Introduce la categoría del evento");
         System.out.println("1. Arte");
         System.out.println("2. Tecnología");
@@ -20,16 +20,16 @@ public class Funciones {
         System.out.println("7. Moda");
     }
 
-    public void creaEventos(){
+    public void creaEventos() {
         Scanner s = new Scanner(System.in);
-        if (!e1Creado){
+        if (!e1Creado) {
             System.out.print("Introduce el nombre del evento: ");
             nombreE1 = s.next();
             System.out.print("Escribe la descripción del evento: ");
             descripcionE1 = s.next();
             muestraCategoria();
             int opcion = s.nextInt();
-            categoriaE1 = switch (opcion){
+            categoriaE1 = switch (opcion) {
                 case 1 -> "Arte";
                 case 2 -> "Tecnología";
                 case 3 -> "Cine";
@@ -55,7 +55,7 @@ public class Funciones {
             descripcionE2 = s.next();
             muestraCategoria();
             int opcion = s.nextInt();
-            categoriaE2 = switch (opcion){
+            categoriaE2 = switch (opcion) {
                 case 1 -> "Arte";
                 case 2 -> "Tecnología";
                 case 3 -> "Cine";
@@ -81,7 +81,7 @@ public class Funciones {
             descripcionE3 = s.next();
             muestraCategoria();
             int opcion = s.nextInt();
-            categoriaE3 = switch (opcion){
+            categoriaE3 = switch (opcion) {
                 case 1 -> "Arte";
                 case 2 -> "Tecnología";
                 case 3 -> "Cine";
@@ -103,8 +103,8 @@ public class Funciones {
         }
     }
 
-    public void eliminaEventos(int peticionEventoBorrar){
-        switch (peticionEventoBorrar){
+    public void eliminaEventos(int peticionEventoBorrar) {
+        switch (peticionEventoBorrar) {
             case 1 -> e1Creado = false;
             case 2 -> e2Creado = false;
             case 3 -> e3Creado = false;
@@ -113,9 +113,9 @@ public class Funciones {
         }
     }
 
-    public void muestraEvento(int peticionMuestraEvento){
+    public void muestraEvento(int peticionMuestraEvento) {
 
-        switch (peticionMuestraEvento){
+        switch (peticionMuestraEvento) {
             case 1:
                 System.out.println("***** " + nombreE1 + " *****");
                 System.out.println("Descripción: " + descripcionE1);
@@ -155,22 +155,23 @@ public class Funciones {
             case 4:
                 System.out.println("Saliendo...\n");
                 break;
-            default: System.out.println("Debes de introducir las opciones que hay en pantalla");
-            break;
+            default:
+                System.out.println("Debes de introducir las opciones que hay en pantalla");
+                break;
         }
     }
 
-    public void vistaDetalladaEvento(int peticionEvento){
+    public void vistaDetalladaEvento(int peticionEvento) {
         int porcentajeOcupacion;
-        switch (peticionEvento){
+        switch (peticionEvento) {
             case 1:
-                porcentajeOcupacion = (numInscritosE1*100)/aforoE1;
+                porcentajeOcupacion = (numInscritosE1 * 100) / aforoE1;
                 System.out.println("════════════════════");
                 System.out.print("║");
-                for (int i = 0; i < porcentajeOcupacion/5; i++) {
+                for (int i = 0; i < porcentajeOcupacion / 5; i++) {
                     System.out.print("█");
                 }
-                for (int i = 0; i < (100-porcentajeOcupacion)/5; i++) {
+                for (int i = 0; i < (100 - porcentajeOcupacion) / 5; i++) {
                     System.out.print(" ");
                 }
                 System.out.print("║");
@@ -179,13 +180,13 @@ public class Funciones {
                 System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
                 break;
             case 2:
-                porcentajeOcupacion = (numInscritosE2*100)/aforoE2;
+                porcentajeOcupacion = (numInscritosE2 * 100) / aforoE2;
                 System.out.println("════════════════════");
                 System.out.print("║");
-                for (int i = 0; i < porcentajeOcupacion/5; i++) {
+                for (int i = 0; i < porcentajeOcupacion / 5; i++) {
                     System.out.print("█");
                 }
-                for (int i = 0; i < (100-porcentajeOcupacion)/5; i++) {
+                for (int i = 0; i < (100 - porcentajeOcupacion) / 5; i++) {
                     System.out.print(" ");
                 }
                 System.out.print("║");
@@ -194,13 +195,13 @@ public class Funciones {
                 System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
                 break;
             case 3:
-                porcentajeOcupacion = (numInscritosE3*100)/aforoE3;
+                porcentajeOcupacion = (numInscritosE3 * 100) / aforoE3;
                 System.out.println("════════════════════");
                 System.out.print("║");
-                for (int i = 0; i < porcentajeOcupacion/5; i++) {
+                for (int i = 0; i < porcentajeOcupacion / 5; i++) {
                     System.out.print("█");
                 }
-                for (int i = 0; i < (100-porcentajeOcupacion)/5; i++) {
+                for (int i = 0; i < (100 - porcentajeOcupacion) / 5; i++) {
                     System.out.print(" ");
                 }
                 System.out.print("║");
@@ -215,12 +216,12 @@ public class Funciones {
         }
     }
 
-    public void inscripcionEventoPago(){
+    public void inscripcionEventoPago() {
         System.out.println("**** INSCRIPCIÓN A EVENTO DE PAGO ****");
         System.out.println("El coste al evento seleccionado según el tipo de entrada seleccionado es de: "/* + Precio de la entrada */);
     }
 
-    public void configuracionUsuario(){
+    public void configuracionUsuario() {
         Scanner s = new Scanner(System.in);
         System.out.println("**** CONFIGURACIÓN ****");
         System.out.println("1. Cambio de nombre de usuario");
@@ -244,9 +245,6 @@ public class Funciones {
     }
 
 
-
-
-
 //********************************************************************************************************************************************************************************************************
 
 //********************************************************************************************************************************************************************************************************
@@ -262,20 +260,13 @@ public class Funciones {
 //********************************************************************************************************************************************************************************************************
 
 
+//********************************************************************************************************************************************************************************************************
+
 
 //********************************************************************************************************************************************************************************************************
 
 
-
-
-//********************************************************************************************************************************************************************************************************
-
-
-
-
-
-    
-    public static int menuGeneral(){
+    public static int menuGeneral() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Bienvenido a FernanEvents, ¿Como deseas acceder?");
@@ -288,9 +279,9 @@ public class Funciones {
         return opcion;
 
 
-
     }
-    public static int menuAdministrador(){
+
+    public static int menuAdministrador() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Bienvenido al Administrador");
@@ -303,9 +294,9 @@ public class Funciones {
         return opcion;
 
 
-
     }
-    public static int menuOrganizador(){
+
+    public static int menuOrganizador() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Bienvenido al Organizador");
@@ -317,9 +308,9 @@ public class Funciones {
         return opcion;
 
 
-
     }
-    public static int menuAsistente(){
+
+    public static int menuAsistente() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Bienvenido al Asistente 1");
@@ -333,29 +324,30 @@ public class Funciones {
         return opcion;
 
 
-
     }
-    public static int menuCartera(){
+
+    public static int menuCartera() {
         Scanner sc = new Scanner(System.in);
         System.out.println("1--Ingresar dinero");
         System.out.println("2--Retirar dinero");
         System.out.println("3--Ver saldo");
         System.out.println("4--Salir");
-        int opcion= Integer.parseInt(sc.next());
+        int opcion = Integer.parseInt(sc.next());
         return opcion;
     }
 
 
-    public static int carteraIngresarDinero(int total, int suma){
+    public static int carteraIngresarDinero(int total, int suma) {
         System.out.println("Saldo Actualizado");
-       return total+=suma;
-    }
-    public static int carteraRetirarDinero(int total, int resta){
-        System.out.println("Saldo Actualizado");
-        return total-resta;
+        return total += suma;
     }
 
-    public static int panelDeControl(){
+    public static int carteraRetirarDinero(int total, int resta) {
+        System.out.println("Saldo Actualizado");
+        return total - resta;
+    }
+
+    public static int panelDeControl() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido al panel de control, ¿que usuario deseas desbloquear?");
         System.out.println("1--Organizador");
@@ -365,7 +357,7 @@ public class Funciones {
         return opcion;
     }
 
-    public static int menuConfiguracion(){
+    public static int menuConfiguracion() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido a la configuración, ¿que deseas cambiar?");
         System.out.println("1--Usuario");
@@ -376,532 +368,26 @@ public class Funciones {
         return opcion;
     }
 
-    public static String cambioUsuario(){
+    public static String cambioUsuario() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Dime tu nuevo usuario");
-        String nuevoUsuario=sc.next();
+        String nuevoUsuario = sc.next();
 
 
         return nuevoUsuario;
     }
-    public static String cambioContrasena(){
+
+    public static String cambioContrasena() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Dime tu nueva contraseña");
-        String nuevaContrasena=sc.next();
+        String nuevaContrasena = sc.next();
 
 
         return nuevaContrasena;
     }
-
-
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //________________________________________________________FUNCIONES MARCOS_______________________________________________________________________
-
-
-
-
-//________________________________________________________MAIN MARCOS_______________________________________________________________________
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-
-
-        String usuarioAdmin="Paco";
-        String usuarioOrganizador="Manuel";
-        String usuarioAsistente1="Marcos";
-        String usuarioAsistente2="Pablo";
-
-        String contrasenaAdmin="1234";
-        String contrasenaOrganizador="1234";
-        String contrasenaAsistente1="1234";
-        String contrasenaAsistente2="1234";
-
-        int bloqueoAdmin=0;
-        int bloqueoOrganizador=0;
-        int bloqueoAsistente1=0;
-        int bloqueoAsistente2=0;
-
-
-
-
-        int finalizarPrograma=0;
-
-        int carteraAdmin=0;
-        int carteraOrganizador=0;
-        int carteraAsistente1=0;
-        int carteraAsistente2=0;
-
-
-        do {
-
-
-            int salirAdmin=0;
-            int salirOrganizador=0;
-            int salirAsistente1=0;
-            int salirAsistente2=0;
-
-
-            switch (menuGeneral()){
-                case 1:
-
-
-
-                        do {
-                            System.out.println("Escribe el usuario administrador");
-                            String usuarioIntroducidoAdmin= sc.next();
-                            System.out.println("Escribe la contraseña");
-                            String contrasenaIntroducidaAdmin= sc.next();
-                            if (usuarioAdmin.equals(usuarioIntroducidoAdmin) && contrasenaAdmin.equals(contrasenaIntroducidaAdmin)) {
-
-                                do {
-
-                                    switch (menuAdministrador()){
-                                        case 1:
-
-                                            switch (panelDeControl()){
-                                                case 1:
-                                                    System.out.println("Organizador desbloqueado");
-                                                    bloqueoOrganizador=0;
-                                                    break;
-                                                case 2:
-                                                    System.out.println("Asistente 1 desbloqueado");
-                                                    bloqueoAsistente1=0;
-                                                    break;
-                                                case 3:
-                                                    System.out.println("Asistente 2 desbloqueado");
-                                                    bloqueoAsistente2=0;
-                                                    break;
-                                                default:
-                                                    System.out.println("Opcion incorrecta");
-                                                    break;
-                                            }
-
-                                            break;
-                                        case 2:
-                                            break;
-                                        case 3:
-
-
-                                            switch (menuCartera()){
-
-                                                case 1:
-                                                    System.out.println("Escriba la cantidad que desea añadir.");
-                                                    int cantidadQueDeseaAñadirAdmin = Integer.parseInt(sc.next());
-                                                    carteraAdmin=carteraIngresarDinero(carteraAdmin,cantidadQueDeseaAñadirAdmin);
-                                                    break;
-                                                case 2:
-                                                    System.out.println("Escriba la cantidad que desea retirar.");
-                                                    int cantidadQueDeseaRetirarAdmin = Integer.parseInt(sc.next());
-                                                    carteraAdmin=carteraRetirarDinero(carteraAdmin,cantidadQueDeseaRetirarAdmin);
-                                                    break;
-                                                case 3:
-                                                    System.out.println("Su saldo es: "+carteraAdmin);
-                                                    break;
-                                                default:
-                                                    break;
-
-                                            }
-
-                                            break;
-                                        case 4:
-                                            switch (menuConfiguracion()){
-                                                case 1:
-                                                    usuarioAdmin=cambioUsuario();
-                                                    break;
-                                                case 2:
-                                                    contrasenaAdmin=cambioContrasena();
-                                                    break;
-                                                case 3:
-                                                    break;
-                                                default:
-                                                    System.out.println("error");
-                                                    break;
-                                            }
-                                            break;
-                                        case 5:
-                                            System.out.println("Cerrando sesión");
-                                            salirAdmin++;
-                                            break;
-                                        default:
-                                            System.out.println("Opción incorrecta");
-                                            break;
-                                    }
-
-
-                                }while (salirAdmin!=1);
-
-
-
-
-
-                            }else{
-                                System.out.println("Usuario o contraseña incorrecta");
-
-                            }
-
-                        }while (bloqueoAdmin!=3 && salirAdmin!=1);
-
-
-
-
-
-
-                    break;
-                case 2:
-
-
-                    if (bloqueoOrganizador==3) {
-                        System.out.println("Usuario bloqueado");
-                        break;
-                    }else{
-
-                        do {
-                            System.out.println("Escribe el usuario organizador");
-                            String usuarioIntroducidoOrganizador= sc.next();
-                            System.out.println("Escribe la contraseña");
-                            String contrasenaIntroducidaOrganizador= sc.next();
-                            if (usuarioOrganizador.equals(usuarioIntroducidoOrganizador) && contrasenaOrganizador.equals(contrasenaIntroducidaOrganizador)) {
-
-                                do {
-
-                                    switch (menuOrganizador()){
-                                        case 1:
-                                            break;
-                                        case 2:
-                                            switch (menuCartera()){
-
-                                                case 1:
-                                                    System.out.println("Escriba la cantidad que desea añadir.");
-                                                    int cantidadQueDeseaAñadirOrganizador = Integer.parseInt(sc.next());
-                                                    carteraOrganizador=carteraIngresarDinero(carteraOrganizador,cantidadQueDeseaAñadirOrganizador);
-                                                    break;
-                                                case 2:
-                                                    System.out.println("Escriba la cantidad que desea retirar.");
-                                                    int cantidadQueDeseaRetirarOrganizador = Integer.parseInt(sc.next());
-                                                    carteraOrganizador=carteraRetirarDinero(carteraOrganizador,cantidadQueDeseaRetirarOrganizador);
-                                                    break;
-                                                case 3:
-                                                    System.out.println("Su saldo es: "+carteraOrganizador);
-                                                    break;
-                                                default:
-                                                    break;
-
-                                            }
-                                            break;
-                                        case 3:
-                                            switch (menuConfiguracion()){
-                                                case 1:
-                                                    usuarioOrganizador=cambioUsuario();
-                                                    break;
-                                                case 2:
-                                                    contrasenaOrganizador=cambioContrasena();
-                                                    break;
-                                                case 3:
-                                                    break;
-                                                default:
-                                                    System.out.println("error");
-                                                    break;
-                                            }
-
-                                            break;
-                                        case 4:
-                                            salirOrganizador++;
-                                            break;
-                                        default:
-                                            System.out.println("Opción incorrecta");
-                                            break;
-
-                                    }
-
-
-
-                                }while (salirOrganizador!=1);
-
-
-
-                            }else{
-                                System.out.println("Usuario o contraseña incorrecta");
-                                bloqueoOrganizador++;
-                                if (bloqueoOrganizador==3) {
-
-                                    System.out.println("Usuario bloqueado");
-                                    break;
-                                }
-                            }
-
-                        }while (bloqueoOrganizador!=3 && salirOrganizador!=1);
-
-                    }
-
-
-
-
-
-                    break;
-                case 3:
-
-
-                    if (bloqueoAsistente1==3) {
-                        System.out.println("Usuario bloqueado");
-                        break;
-                    }else{
-
-                        do {
-                            System.out.println("Escribe el usuario asistente 1");
-                            String usuarioIntroducidoAsistente1= sc.next();
-                            System.out.println("Escribe la contraseña");
-                            String contrasenaIntroducidaAsistente1= sc.next();
-                            if (usuarioIntroducidoAsistente1.equals(usuarioAsistente1) && contrasenaIntroducidaAsistente1.equals(contrasenaAsistente1)) {
-
-                                do {
-
-
-                                    switch ( menuAsistente()){
-                                        case 1:
-                                            break;
-                                        case 2:
-                                            break;
-                                        case 3:
-                                            switch (menuCartera()){
-
-                                                case 1:
-                                                    System.out.println("Escriba la cantidad que desea añadir.");
-                                                    int cantidadQueDeseaAñadirAsistente1 = Integer.parseInt(sc.next());
-                                                    carteraAsistente1=carteraIngresarDinero(carteraAsistente1,cantidadQueDeseaAñadirAsistente1);
-                                                    break;
-                                                case 2:
-                                                    System.out.println("Escriba la cantidad que desea retirar.");
-                                                    int cantidadQueDeseaRetirarAsistente1 = Integer.parseInt(sc.next());
-                                                    carteraAsistente1=carteraIngresarDinero(carteraAsistente1,cantidadQueDeseaRetirarAsistente1);
-                                                    break;
-                                                case 3:
-                                                    System.out.println("Su saldo es: "+carteraAsistente1);
-                                                    break;
-                                                default:
-                                                    break;
-
-                                            }
-                                            break;
-                                        case 4:
-                                            break;
-                                        case 5:
-                                            switch (menuConfiguracion()){
-                                            case 1:
-                                                usuarioAsistente1=cambioUsuario();
-                                                break;
-                                            case 2:
-                                                contrasenaAsistente1=cambioContrasena();
-                                                break;
-                                            case 3:
-                                                break;
-                                            default:
-                                                System.out.println("error");
-                                                break;
-                                        }
-
-                                            break;
-                                        case 6:
-                                            salirAsistente1++;
-                                            break;
-                                        default:
-                                            System.out.println("Opción incorrecta");
-                                            break;
-                                    }
-
-
-                                }while (salirAsistente1!=1);
-
-
-
-
-                            }else{
-                                System.out.println("Usuario o contraseña incorrecta");
-                                bloqueoAsistente1++;
-                                if (bloqueoAsistente1==3) {
-
-                                    System.out.println("Usuario bloqueado");
-                                    break;
-                                }
-                            }
-
-                        }while (bloqueoAsistente1!=3 && salirAsistente1!=1);
-
-                    }
-
-
-
-
-
-                    break;
-                case 4:
-
-                    if (bloqueoAsistente2==3) {
-                        System.out.println("Usuario bloqueado");
-                        break;
-                    }else{
-
-                        do {
-                            System.out.println("Escribe el usuario asistente 2");
-                            String usuarioIntroducidoAsistente2= sc.next();
-                            System.out.println("Escribe la contraseña");
-                            String contrasenaIntroducidaAsistente2= sc.next();
-                            if (usuarioIntroducidoAsistente2.equals(usuarioAsistente2) && contrasenaIntroducidaAsistente2.equals(contrasenaAsistente2)) {
-
-
-                                do {
-
-                                    switch (menuAsistente()){
-                                        case 1:
-                                            break;
-                                        case 2:
-                                            break;
-                                        case 3:
-                                            switch (menuCartera()){
-
-                                                case 1:
-                                                    System.out.println("Escriba la cantidad que desea añadir.");
-                                                    int cantidadQueDeseaAñadirAsistente2 = Integer.parseInt(sc.next());
-                                                    carteraAsistente2=carteraIngresarDinero(carteraAsistente2,cantidadQueDeseaAñadirAsistente2);
-                                                    break;
-                                                case 2:
-                                                    System.out.println("Escriba la cantidad que desea añadir.");
-                                                    int cantidadQueDeseaRetirarAsistente2 = Integer.parseInt(sc.next());
-                                                    carteraAsistente2=carteraIngresarDinero(carteraAsistente2,cantidadQueDeseaRetirarAsistente2);
-                                                    break;
-                                                case 3:
-                                                    System.out.println("Su saldo es: "+carteraAsistente2);
-                                                    break;
-                                                default:
-                                                    break;
-
-                                            }
-                                            break;
-                                        case 4:
-                                            break;
-                                        case 5:
-                                            switch (menuConfiguracion()){
-                                                case 1:
-                                                    usuarioAsistente2=cambioUsuario();
-                                                    break;
-                                                case 2:
-                                                    contrasenaAsistente2=cambioContrasena();
-                                                    break;
-                                                case 3:
-                                                    break;
-                                                default:
-                                                    System.out.println("error");
-                                                    break;
-                                            }
-
-                                            break;
-                                        case 6:
-                                            salirAsistente2++;
-                                            break;
-                                        default:
-                                            System.out.println("Opción incorrecta");
-                                            break;
-                                    }
-
-
-
-                                }while (salirAsistente2!=1);
-
-
-
-
-                            }else{
-                                System.out.println("Usuario o contraseña incorrecta");
-                                bloqueoAsistente2++;
-                                if (bloqueoAsistente2==3) {
-
-                                    System.out.println("Usuario bloqueado");
-                                    break;
-                                }
-                            }
-
-                        }while (bloqueoAsistente2!=3 && salirAsistente2!=1);
-
-                    }
-
-
-
-
-                    break;
-                case 5:
-                    finalizarPrograma++;
-                    break;
-                default:
-                    System.out.println("Opción incorrecta");
-                    break;
-            }
-
-
-        }while (finalizarPrograma==0);
-
-
-
-
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

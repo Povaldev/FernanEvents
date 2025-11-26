@@ -207,12 +207,17 @@ public class Funciones {
                 System.out.println(porcentajeOcupacion + "% de Ocupación");
                 System.out.println("════════════════════");
                 System.out.println("Tipo de entradas: " /* --------------------------------------------------------------------------    */);
+                System.out.println("¿Desea inscribirse a algún evento de pago? (s/n):");
                 break;
             default:
                 System.out.println();
                 break;
         }
+    }
 
+    public void inscripcionEventoPago(){
+        System.out.println("**** INSCRIPCIÓN A EVENTO DE PAGO ****");
+        System.out.println("El coste al evento seleccionado según el tipo de entrada seleccionado es de: "/* + Precio de la entrada */);
     }
 
     public void configuracionUsuario(){

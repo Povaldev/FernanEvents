@@ -85,15 +85,10 @@ public class Main {
 
                                         break;
                                     case 2:
-                                        if (Funciones.e1Creado){
                                             Funciones.muestraEventos();
-                                        }
-                                        if (Funciones.e2Creado){
-                                            Funciones.muestraEventos();
-                                        }
-                                        if (Funciones.e3Creado){
-                                            Funciones.muestraEventos();
-                                        }
+                                        System.out.print("¿Desea abrir el menú de modificación de proyectos? (s/n): ");
+                                        String opcion = sc.nextLine();
+                                        if (opcion.equals("s")) Funciones.menuModificaEventos();
                                         break;
                                     case 3:
 
@@ -142,11 +137,7 @@ public class Main {
                                         break;
                                 }
 
-
                             }while (salirAdmin!=1);
-
-
-
 
 
                         }else{
@@ -181,6 +172,10 @@ public class Main {
 
                                     switch (Funciones.menuOrganizador()){
                                         case 1:
+                                            Funciones.muestraEventos();
+                                            System.out.print("¿Desea abrir el menú de modificación de proyectos? (s/n): ");
+                                            String opcion = sc.nextLine();
+                                            if (opcion.equals("s")) Funciones.menuModificaEventos();
                                             break;
                                         case 2:
                                             switch (Funciones.menuCartera()){
@@ -270,11 +265,14 @@ public class Main {
 
                                 do {
 
-
                                     switch (Funciones.menuAsistente()){
                                         case 1:
                                             break;
                                         case 2:
+                                            Funciones.muestraEventos();
+                                            System.out.println("¿Desea inscribirse a algún evento? (s/n)");
+                                            String opcion = sc.nextLine();
+                                            if (opcion.equals("s")) Funciones.inscripcionEventoPago();
                                             break;
                                         case 3:
                                             switch (Funciones.menuCartera()){

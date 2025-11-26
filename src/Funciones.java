@@ -120,7 +120,7 @@ public class Funciones {
         }
     }
 
-    public void creaEventos() {
+    public static void creaEventos() {
         Scanner s = new Scanner(System.in);
         if (!e1Creado) {
             System.out.print("Introduce el nombre del evento: ");
@@ -205,7 +205,7 @@ public class Funciones {
         }
     }
 
-    public void eliminaEventos(int peticionEventoBorrar) {
+    public static void eliminaEventos(int peticionEventoBorrar) {
         switch (peticionEventoBorrar) {
             case 1 -> e1Creado = false;
             case 2 -> e2Creado = false;
@@ -215,41 +215,117 @@ public class Funciones {
         }
     }
 
+    public static void menuModificaEventos(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("**** MENÚ MODIFICADOR EVENTOS ****");
+        System.out.println("1. Crear nuevo evento");
+        System.out.println("2. Modificar evento existente");
+        System.out.println("3. Eliminar evento");
+        System.out.println("4. Salir");
+        int opcion = s.nextInt();
+        switch (opcion){
+            case 1:
+                creaEventos();
+                break;
+            case 2:
+                if (!e1Creado && !e2Creado && !e3Creado){
+                    System.out.println("No puede modificar ningún evento, aún no se ha creado ninguno");
+                    break;
+                } else if (e1Creado && !e2Creado && !e3Creado) {
+                    System.out.println("¿Qué evento desea modificar?");
+                    System.out.println("1. " + nombreE1);
+                    opcion = s.nextInt();
+                    if (opcion != 1){
+                        System.out.println("Por favor, introduce la opción correspondiente");
+                        break;
+                    }
+                } else if (e1Creado && e2Creado && !e3Creado) {
+                    System.out.println("¿Qué evento desea modificar?");
+                    System.out.println("1. " + nombreE1);
+                    System.out.println("2. " + nombreE2);
+                    opcion = s.nextInt();
+                    if (opcion < 1 || opcion > 2){
+                        System.out.println("Por favor, introduce la opción correspondiente");
+                        break;
+                    }
+                } else {
+                    System.out.println("¿Qué evento desea modificar?");
+                    System.out.println("1. " + nombreE1);
+                    System.out.println("2. " + nombreE2);
+                    System.out.println("3. " + nombreE3);
+                    opcion = s.nextInt();
+                    if (opcion < 1 || opcion > 3) {
+                        System.out.println("Por favor, introduce la opción correspondiente");
+                        break;
+                    }
+                }
+
+                switch (opcion){
+                    case 1:
+                        eliminaEventos(1);
+                        creaEventos();
+                    break;
+                    case 2:
+                        eliminaEventos(2);
+                        creaEventos();
+                    break;
+                    case 3:
+                        eliminaEventos(3);
+                        creaEventos();
+                        break;
+                }
+        }
+    }
+
+    public static void muestraEvento1(){
+        System.out.println("***** " + nombreE1 + " *****");
+        System.out.println("Descripción: " + descripcionE1);
+        System.out.println("Categoría: " + categoriaE1);
+        System.out.println("Fecha: " + fechaE1 + " Hora " + horaE1);
+        System.out.println("Aforo máximo " + aforoE1);
+        System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE1);
+        vistaDetalladaEvento(1);
+        System.out.print("******");
+        for (int i = 0; i < nombreE1.length(); i++) System.out.print("*");
+        System.out.println("******");
+    }
+
+    public static void muestraEvento2(){
+        System.out.println("***** " + nombreE2 + " *****");
+        System.out.println("Descripción: " + descripcionE2);
+        System.out.println("Categoría: " + categoriaE2);
+        System.out.println("Fecha: " + fechaE2 + " Hora " + horaE2);
+        System.out.println("Aforo máximo " + aforoE2);
+        System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE2);
+        vistaDetalladaEvento(2);
+        System.out.print("******");
+        for (int i = 0; i < nombreE2.length(); i++) System.out.print("*");
+        System.out.println("******");
+    }
+
+    public static void muestraEvento3(){
+        System.out.println("***** " + nombreE3 + " *****");
+        System.out.println("Descripción: " + descripcionE3);
+        System.out.println("Categoría: " + categoriaE3);
+        System.out.println("Fecha: " + fechaE3 + " Hora " + horaE3);
+        System.out.println("Aforo máximo " + aforoE3);
+        System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE3);
+        vistaDetalladaEvento(3);
+        System.out.print("******");
+        for (int i = 0; i < nombreE3.length(); i++) System.out.print("*");
+        System.out.println("******");
+    }
+
     public static void muestraEventos() {
-
-                System.out.println("***** " + nombreE1 + " *****");
-                System.out.println("Descripción: " + descripcionE1);
-                System.out.println("Categoría: " + categoriaE1);
-                System.out.println("Fecha: " + fechaE1 + " Hora " + horaE1);
-                System.out.println("Aforo máximo " + aforoE1);
-                System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE1);
-                vistaDetalladaEvento(1);
-                System.out.print("******");
-                for (int i = 0; i < nombreE1.length(); i++) System.out.print("*");
-                System.out.println("******");
-                
-                System.out.println("***** " + nombreE2 + " *****");
-                System.out.println("Descripción: " + descripcionE2);
-                System.out.println("Categoría: " + categoriaE2);
-                System.out.println("Fecha: " + fechaE2 + " Hora " + horaE2);
-                System.out.println("Aforo máximo " + aforoE2);
-                System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE2);
-                vistaDetalladaEvento(2);
-                System.out.print("******");
-                for (int i = 0; i < nombreE2.length(); i++) System.out.print("*");
-                System.out.println("******");
-
-                System.out.println("***** " + nombreE3 + " *****");
-                System.out.println("Descripción: " + descripcionE3);
-                System.out.println("Categoría: " + categoriaE3);
-                System.out.println("Fecha: " + fechaE3 + " Hora " + horaE3);
-                System.out.println("Aforo máximo " + aforoE3);
-                System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE3);
-                vistaDetalladaEvento(3);
-                System.out.print("******");
-                for (int i = 0; i < nombreE3.length(); i++) System.out.print("*");
-                System.out.println("******");
-
+        if (e1Creado){
+            muestraEvento1();
+        }
+        if (e2Creado){
+            muestraEvento2();
+        }
+        if (e3Creado){
+            muestraEvento3();
+        }
     }
 
     public static void vistaDetalladaEvento(int peticionEvento) {
@@ -321,33 +397,22 @@ public class Funciones {
         }
     }
 
-    public void inscripcionEventoPago() {
-        System.out.println("**** INSCRIPCIÓN A EVENTO DE PAGO ****");
-        System.out.println("El coste al evento seleccionado es de: "/* + Precio de la entrada */);
-    }
-
-    public void configuracionUsuario() {
+    public static void inscripcionEventoPago() {
         Scanner s = new Scanner(System.in);
-        System.out.println("**** CONFIGURACIÓN ****");
-        System.out.println("1. Cambio de nombre de usuario");
-        System.out.println("2. Cambio de contraseña");
-        System.out.println("3. Salir");
-        int opcion = s.nextInt();
+        System.out.println("**** INSCRIPCIÓN A EVENTO DE PAGO ****");
+        System.out.println("¿Desea volver a ver todos los eventos a los que puede inscribirse? (s/n)");
+        String opcion = s.nextLine();
+        if (opcion.equals("s")) muestraEventos();
+        System.out.println("¿A que evento desea inscribirse?");
+        System.out.println("1. " + nombreE1);
+        System.out.println("2. " + nombreE2);
+        System.out.println("3. " + nombreE3);
+        opcion = s.nextLine();
         switch (opcion) {
-            case 1:
-                // Cambio de nombre de usuario
-                break;
-            case 2:
-                // Cambio de contraseña
-                break;
-            case 3:
-                System.out.println("Saliendo...\n");
-                break;
-            default:
-                System.out.println("Introduce una opción correctamente");
-                break;
+
         }
     }
+
 
 
 //********************************************************************************************************************************************************************************************************

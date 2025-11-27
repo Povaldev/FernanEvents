@@ -128,11 +128,11 @@ public class Funciones {
         Scanner s = new Scanner(System.in);
         if (!e1Creado) {
             System.out.print("Introduce el nombre del evento: ");
-            nombreE1 = s.next();
+            nombreE1 = s.nextLine();
             System.out.print("Escribe la descripción del evento: ");
-            descripcionE1 = s.next();
+            descripcionE1 = s.nextLine();
             muestraCategoria();
-            int opcion = s.nextInt();
+            int opcion = Integer.parseInt(s.nextLine());
             categoriaE1 = switch (opcion) {
                 case 1 -> "Arte";
                 case 2 -> "Tecnología";
@@ -154,11 +154,11 @@ public class Funciones {
 
         } else if (!e2Creado) {
             System.out.print("Introduce el nombre del evento: ");
-            nombreE2 = s.next();
+            nombreE2 = s.nextLine();
             System.out.print("Escribe la descripción del evento: ");
-            descripcionE2 = s.next();
+            descripcionE2 = s.nextLine();
             muestraCategoria();
-            int opcion = s.nextInt();
+            int opcion = Integer.parseInt(s.nextLine());
             categoriaE2 = switch (opcion) {
                 case 1 -> "Arte";
                 case 2 -> "Tecnología";
@@ -181,11 +181,11 @@ public class Funciones {
 
         } else if (!e3Creado) {
             System.out.print("Introduce el nombre del evento: ");
-            nombreE3 = s.next();
+            nombreE3 = s.nextLine();
             System.out.print("Escribe la descripción del evento: ");
-            descripcionE3 = s.next();
+            descripcionE3 = s.nextLine();
             muestraCategoria();
-            int opcion = s.nextInt();
+            int opcion = Integer.parseInt(s.nextLine());
             categoriaE3 = switch (opcion) {
                 case 1 -> "Arte";
                 case 2 -> "Tecnología";
@@ -603,6 +603,21 @@ public class Funciones {
 
     public static int menuGeneral() {
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("" +
+                "███████╗███████╗██████╗  ███╗   ██╗ █████╗ ███╗   ██╗\n" +
+                "██╔════╝██╔════╝██╔══██╗ ████╗  ██║██╔══██╗████╗  ██║\n" +
+                "█████╗  █████╗  ██████╔╝ ██╔██╗ ██║███████║██╔██╗ ██║\n" +
+                "██╔══╝  ██╔══╝  ██╔══██╗ ██║╚██╗██║██╔══██║██║╚██╗██║\n" +
+                "██║     ███████╗██║  ██║ ██║ ╚████║██║  ██║██║ ╚████║\n" +
+                "╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝\n" +
+                "███████╗██╗     ██╗███╗   ██╗███████╗███╗   ██╗████████╗███████╗\n" +
+                "██╔════╝╚██╗   ██╔╝████╗  ██║██╔════╝████╗  ██║╚══██╔══╝██╔════╝\n" +
+                "█████╗   ╚██╗ ██╔╝ ██╔██╗ ██║█████╗  ██╔██╗ ██║   ██║   ███████╗\n" +
+                "██╔══╝    ╚████╔╝  ██║╚██╗██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║\n" +
+                "███████╗   ╚██╔╝   ██║ ╚████║███████╗██║ ╚████║   ██║   ███████║\n" +
+                "╚══════╝    ╚═╝    ╚═╝   ╚══╝╚══════╝╚═╝   ╚══╝   ╚═╝   ╚══════╝\n\n" +
+                "             G E S T I Ó N   D E   E V E N T O S\n");
 
         System.out.println("Bienvenido a FernanEvents, ¿Como deseas acceder?");
         System.out.println("1--Administrador");

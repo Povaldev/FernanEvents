@@ -9,7 +9,9 @@ public class Funciones {
 
     public static int precioGeneralE1, precioPremiumE1, precioVIPE1, precioGeneralE2, precioPremiumE2, precioVIPE2, precioGeneralE3, precioPremiumE3, precioVIPE3;
 
-    public static boolean e1Creado, entradaGeneralE1, entradaPremiumE1, entradaVIPE1, e2Creado, entradaGeneralE2, entradaPremiumE2, entradaVIPE2, e3Creado, entradaGeneralE3, entradaPremiumE3, entradaVIPE3;
+    public static boolean e1Creado = false, entradaGeneralE1 = false, entradaPremiumE1 = false, entradaVIPE1 = false, e2Creado = false, entradaGeneralE2 = false, entradaPremiumE2 = false, entradaVIPE2 = false, e3Creado = false, entradaGeneralE3 = false, entradaPremiumE3 = false, entradaVIPE3 = false;
+
+    public static boolean as1InscritoE1 = false, as1InscritoE2 = false, as1InscritoE3 = false, as2InscritoE1 = false, as2InscritoE2 = false, as2InscritoE3 = false;
 
     public static void muestraCategoria() {
         System.out.println("Introduce la categoría del evento");
@@ -316,6 +318,19 @@ public class Funciones {
         System.out.println("******");
     }
 
+    public static void muestraEventos_A_Asistentes(int asistente){
+        System.out.println("**** EVENTOS A LOS QUE TE HAS SUSCRITO ****");
+        if (asistente==1){
+            if (as1InscritoE1) muestraEvento1();
+            if (as1InscritoE2) muestraEvento2();
+            if (as1InscritoE3) muestraEvento3();
+        } else if (asistente==2) {
+            if (as2InscritoE1) muestraEvento1();
+            if (as2InscritoE2) muestraEvento2();
+            if (as2InscritoE3) muestraEvento3();
+        }
+    }
+
     public static void muestraEventos() {
         if (e1Creado){
             muestraEvento1();
@@ -411,10 +426,10 @@ public class Funciones {
         }
     }
 
-    public static int inscripcionEventoPago(int carteraAsistente) {
+    public static int inscripcionEventoPago(int carteraAsistente, int asistente) {
         Scanner s = new Scanner(System.in);
         int seleccionUsuario;
-        String respuesta = "";
+        String respuesta;
         System.out.println("**** INSCRIPCIÓN A EVENTO DE PAGO ****");
         System.out.println("¿Desea volver a ver todos los eventos a los que puede inscribirse? (s/n)");
         String opcion = s.next();
@@ -437,6 +452,8 @@ public class Funciones {
                             if (carteraAsistente>precioGeneralE1){
                                 carteraAsistente -= precioGeneralE1;
                                 personasInscritasE1++;
+                                if (asistente==1) as1InscritoE1 = true;
+                                if (asistente==2) as2InscritoE1 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -449,6 +466,8 @@ public class Funciones {
                             if (carteraAsistente>precioPremiumE1){
                                 carteraAsistente -= precioPremiumE1;
                                 personasInscritasE1++;
+                                if (asistente==1) as1InscritoE1 = true;
+                                if (asistente==2) as2InscritoE1 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -461,6 +480,8 @@ public class Funciones {
                             if (carteraAsistente>precioVIPE1){
                                 carteraAsistente -= precioVIPE1;
                                 personasInscritasE1++;
+                                if (asistente==1) as1InscritoE1 = true;
+                                if (asistente==2) as2InscritoE1 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -480,6 +501,8 @@ public class Funciones {
                             if (carteraAsistente>precioGeneralE2){
                                 carteraAsistente -= precioGeneralE2;
                                 personasInscritasE2++;
+                                if (asistente==1) as1InscritoE2 = true;
+                                if (asistente==2) as2InscritoE2 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -492,6 +515,8 @@ public class Funciones {
                             if (carteraAsistente>precioPremiumE2){
                                 carteraAsistente -= precioPremiumE2;
                                 personasInscritasE2++;
+                                if (asistente==1) as1InscritoE2 = true;
+                                if (asistente==2) as2InscritoE2 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -504,6 +529,8 @@ public class Funciones {
                             if (carteraAsistente>precioVIPE2){
                                 carteraAsistente -= precioVIPE2;
                                 personasInscritasE2++;
+                                if (asistente==1) as1InscritoE2 = true;
+                                if (asistente==2) as2InscritoE2 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -523,6 +550,8 @@ public class Funciones {
                             if (carteraAsistente>precioGeneralE3){
                                 carteraAsistente -= precioGeneralE3;
                                 personasInscritasE3++;
+                                if (asistente==1) as1InscritoE3 = true;
+                                if (asistente==2) as2InscritoE3 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -535,6 +564,8 @@ public class Funciones {
                             if (carteraAsistente>precioPremiumE3){
                                 carteraAsistente -= precioPremiumE3;
                                 personasInscritasE3++;
+                                if (asistente==1) as1InscritoE3 = true;
+                                if (asistente==2) as2InscritoE3 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -547,6 +578,8 @@ public class Funciones {
                             if (carteraAsistente>precioVIPE3){
                                 carteraAsistente -= precioVIPE3;
                                 personasInscritasE3++;
+                                if (asistente==1) as1InscritoE3 = true;
+                                if (asistente==2) as2InscritoE3 = true;
                             } else {
                                 System.out.println("No se ha podido realizar la compra de las entradas. No dispone de suficiente saldo");
                             }
@@ -557,25 +590,6 @@ public class Funciones {
         }
         return carteraAsistente;
     }
-
-
-
-//********************************************************************************************************************************************************************************************************
-
-//********************************************************************************************************************************************************************************************************
-
-//********************************************************************************************************************************************************************************************************
-
-//********************************************************************************************************************************************************************************************************
-
-
-//********************************************************************************************************************************************************************************************************
-
-
-//********************************************************************************************************************************************************************************************************
-
-
-//********************************************************************************************************************************************************************************************************
 
 
 //********************************************************************************************************************************************************************************************************
@@ -702,7 +716,5 @@ public class Funciones {
 
         return nuevaContrasena;
     }
-//------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 //________________________________________________________FUNCIONES MARCOS_______________________________________________________________________
 }

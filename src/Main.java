@@ -268,13 +268,14 @@ public class Main {
 
                                     switch (Funciones.menuAsistente()){
                                         case 1:
+                                            Funciones.muestraEventos_A_Asistentes(2);
                                             break;
                                         case 2:
                                             Funciones.muestraEventos();
                                             System.out.println("¿Desea inscribirse a algún evento? (s/n)");
                                             String opcion = sc.nextLine();
                                             if (opcion.equals("s")){
-                                                carteraAsistente1 -= Funciones.inscripcionEventoPago(carteraAsistente1);
+                                                carteraAsistente1 -= Funciones.inscripcionEventoPago(carteraAsistente1, 1);
                                             }
                                             break;
                                         case 3:
@@ -368,13 +369,14 @@ public class Main {
 
                                     switch (Funciones.menuAsistente()){
                                         case 1:
+                                            Funciones.muestraEventos_A_Asistentes(2);
                                             break;
                                         case 2:
                                             Funciones.muestraEventos();
                                             System.out.println("¿Desea inscribirse a algún evento? (s/n)");
                                             String opcion = sc.nextLine();
                                             if (opcion.equals("s")){
-                                                carteraAsistente2 -= Funciones.inscripcionEventoPago(carteraAsistente2);
+                                                carteraAsistente2 -= Funciones.inscripcionEventoPago(carteraAsistente2, 2);
                                             }
                                             break;
                                         case 3:

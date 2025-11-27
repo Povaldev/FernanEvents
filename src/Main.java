@@ -88,7 +88,7 @@ public class Main {
                                     case 2:
                                             Funciones.muestraEventos();
                                         System.out.print("¿Desea abrir el menú de modificación de proyectos? (s/n): ");
-                                        String opcion = sc.nextLine();
+                                        String opcion = sc.next();
                                         if (opcion.equals("s")) Funciones.menuModificaEventos();
                                         break;
                                     case 3:
@@ -175,7 +175,7 @@ public class Main {
                                         case 1:
                                             Funciones.muestraEventos();
                                             System.out.print("¿Desea abrir el menú de modificación de proyectos? (s/n): ");
-                                            String opcion = sc.nextLine();
+                                            String opcion = sc.next();
                                             if (opcion.equals("s")) Funciones.menuModificaEventos();
                                             break;
                                         case 2:
@@ -268,12 +268,12 @@ public class Main {
 
                                     switch (Funciones.menuAsistente()){
                                         case 1:
-                                            Funciones.muestraEventos_A_Asistentes(2);
+                                            Funciones.muestraEventos_A_Asistentes(1);
                                             break;
                                         case 2:
                                             Funciones.muestraEventos();
                                             System.out.println("¿Desea inscribirse a algún evento? (s/n)");
-                                            String opcion = sc.nextLine();
+                                            String opcion = sc.next();
                                             if (opcion.equals("s")){
                                                 carteraAsistente1 -= Funciones.inscripcionEventoPago(carteraAsistente1, 1);
                                             }
@@ -347,8 +347,6 @@ public class Main {
 
 
 
-
-
                     break;
                 case 4:
 
@@ -374,7 +372,7 @@ public class Main {
                                         case 2:
                                             Funciones.muestraEventos();
                                             System.out.println("¿Desea inscribirse a algún evento? (s/n)");
-                                            String opcion = sc.nextLine();
+                                            String opcion = sc.next();
                                             if (opcion.equals("s")){
                                                 carteraAsistente2 -= Funciones.inscripcionEventoPago(carteraAsistente2, 2);
                                             }

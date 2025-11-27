@@ -279,7 +279,7 @@ public class Funciones {
         }
     }
 
-    public static void muestraEvento1(){
+    public static void muestraEvento1(int personasInscritasE1){
         System.out.println("***** " + nombreE1 + " *****");
         System.out.println("Descripción: " + descripcionE1);
         System.out.println("Categoría: " + categoriaE1);
@@ -292,7 +292,7 @@ public class Funciones {
         System.out.println("******");
     }
 
-    public static void muestraEvento2(){
+    public static void muestraEvento2(int personasInscritasE2){
         System.out.println("***** " + nombreE2 + " *****");
         System.out.println("Descripción: " + descripcionE2);
         System.out.println("Categoría: " + categoriaE2);
@@ -305,7 +305,7 @@ public class Funciones {
         System.out.println("******");
     }
 
-    public static void muestraEvento3(){
+    public static void muestraEvento3(int personasInscritasE3){
         System.out.println("***** " + nombreE3 + " *****");
         System.out.println("Descripción: " + descripcionE3);
         System.out.println("Categoría: " + categoriaE3);
@@ -321,25 +321,29 @@ public class Funciones {
     public static void muestraEventos_A_Asistentes(int asistente){
         System.out.println("**** EVENTOS A LOS QUE TE HAS SUSCRITO ****");
         if (asistente==1){
-            if (as1InscritoE1) muestraEvento1();
-            if (as1InscritoE2) muestraEvento2();
-            if (as1InscritoE3) muestraEvento3();
+            if (as1InscritoE1) muestraEvento1(personasInscritasE1);
+            if (as1InscritoE2) muestraEvento2(personasInscritasE2);
+            if (as1InscritoE3) muestraEvento3(personasInscritasE3);
         } else if (asistente==2) {
-            if (as2InscritoE1) muestraEvento1();
-            if (as2InscritoE2) muestraEvento2();
-            if (as2InscritoE3) muestraEvento3();
+            if (as2InscritoE1) muestraEvento1(personasInscritasE1);
+            if (as2InscritoE2) muestraEvento2(personasInscritasE2);
+            if (as2InscritoE3) muestraEvento3(personasInscritasE3);
         }
     }
 
     public static void muestraEventos() {
-        if (e1Creado){
-            muestraEvento1();
-        }
-        if (e2Creado){
-            muestraEvento2();
-        }
-        if (e3Creado){
-            muestraEvento3();
+        if (!e1Creado && !e2Creado && !e3Creado){
+            System.out.println("Aún no hay eventos.");
+        } else {
+            if (e1Creado){
+                muestraEvento1(personasInscritasE1);
+            }
+            if (e2Creado){
+                muestraEvento2(personasInscritasE2);
+            }
+            if (e3Creado){
+                muestraEvento3(personasInscritasE3);
+            }
         }
     }
 
@@ -373,7 +377,7 @@ public class Funciones {
                 porcentajeOcupacion = (numInscritosE1 * 100) / aforoE1;
                 System.out.println("════════════════════");
                 System.out.print("║");
-                for (int i = 0; i < porcentajeOcupacion / 5; i++) {
+                for (int i = 0; i < (porcentajeOcupacion / 5); i++) {
                     System.out.print("█");
                 }
                 for (int i = 0; i < (100 - porcentajeOcupacion) / 5; i++) {

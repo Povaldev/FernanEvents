@@ -286,7 +286,7 @@ public class Funciones {
         System.out.println("Fecha: " + fechaE1 + " Hora " + horaE1);
         System.out.println("Aforo máximo " + aforoE1);
         System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE1);
-        vistaDetalladaEvento(1);
+        vistaDetalladaEvento(1, numInscritosE1);
         System.out.print("******");
         for (int i = 0; i < nombreE1.length(); i++) System.out.print("*");
         System.out.println("******");
@@ -299,7 +299,7 @@ public class Funciones {
         System.out.println("Fecha: " + fechaE2 + " Hora " + horaE2);
         System.out.println("Aforo máximo " + aforoE2);
         System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE2);
-        vistaDetalladaEvento(2);
+        vistaDetalladaEvento(2, numInscritosE2);
         System.out.print("******");
         for (int i = 0; i < nombreE2.length(); i++) System.out.print("*");
         System.out.println("******");
@@ -312,7 +312,7 @@ public class Funciones {
         System.out.println("Fecha: " + fechaE3 + " Hora " + horaE3);
         System.out.println("Aforo máximo " + aforoE3);
         System.out.println("Numero de personas inscritas hasta el momento " + personasInscritasE3);
-        vistaDetalladaEvento(3);
+        vistaDetalladaEvento(3, numInscritosE3);
         System.out.print("******");
         for (int i = 0; i < nombreE3.length(); i++) System.out.print("*");
         System.out.println("******");
@@ -351,30 +351,30 @@ public class Funciones {
         switch (peticionEvento){
             case 1:
                 System.out.println("Tipo de entradas y precio: ");
-                System.out.println("1. Entrada General: " + precioGeneralE1);
-                if (entradaPremiumE1) System.out.println("2. Entrada Premium: " + precioPremiumE1);
-                if (entradaVIPE1) System.out.println("3. Entrada VIP: " + precioVIPE1);
+                System.out.println("1. Entrada General: " + precioGeneralE1 + "€");
+                if (entradaPremiumE1) System.out.println("2. Entrada Premium: " + precioPremiumE1 + "€");
+                if (entradaVIPE1) System.out.println("3. Entrada VIP: " + precioVIPE1 + "€");
                 break;
             case 2:
                 System.out.println("Tipo de entradas y precio: ");
-                System.out.println("1. Entrada General: " + precioGeneralE2);
-                if (entradaPremiumE2) System.out.println("2. Entrada Premium: " + precioPremiumE2);
-                if (entradaVIPE2) System.out.println("3. Entrada VIP: " + precioVIPE2);
+                System.out.println("1. Entrada General: " + precioGeneralE2 + "€");
+                if (entradaPremiumE2) System.out.println("2. Entrada Premium: " + precioPremiumE2 + "€");
+                if (entradaVIPE2) System.out.println("3. Entrada VIP: " + precioVIPE2 + "€");
                 break;
             case 3:
                 System.out.println("Tipo de entradas y precio: ");
-                System.out.println("1. Entrada General: " + precioGeneralE3);
-                if (entradaPremiumE3) System.out.println("2. Entrada Premium: " + precioPremiumE3);
-                if (entradaVIPE3) System.out.println("3. Entrada VIP: " + precioVIPE3);
+                System.out.println("1. Entrada General: " + precioGeneralE3 + "€");
+                if (entradaPremiumE3) System.out.println("2. Entrada Premium: " + precioPremiumE3 + "€");
+                if (entradaVIPE3) System.out.println("3. Entrada VIP: " + precioVIPE3 + "€");
                 break;
         }
     }
 
-    public static void vistaDetalladaEvento(int peticionEvento) {
-        int porcentajeOcupacion;
+    public static void vistaDetalladaEvento(int peticionEvento, int numInscritos) {
+        double porcentajeOcupacion;
         switch (peticionEvento) {
             case 1:
-                porcentajeOcupacion = (numInscritosE1 * 100) / aforoE1;
+                porcentajeOcupacion = (double) (numInscritos * 100) / aforoE1;
                 System.out.println("════════════════════");
                 System.out.print("║");
                 for (int i = 0; i < (porcentajeOcupacion / 5); i++) {
@@ -391,7 +391,7 @@ public class Funciones {
                 break;
 
             case 2:
-                porcentajeOcupacion = (numInscritosE2 * 100) / aforoE2;
+                porcentajeOcupacion = (double) (numInscritos * 100) / aforoE2;
                 System.out.println("════════════════════");
                 System.out.print("║");
                 for (int i = 0; i < porcentajeOcupacion / 5; i++) {
@@ -408,7 +408,7 @@ public class Funciones {
                 break;
 
             case 3:
-                porcentajeOcupacion = (numInscritosE3 * 100) / aforoE3;
+                porcentajeOcupacion = (double) (numInscritos * 100) / aforoE3;
                 System.out.println("════════════════════");
                 System.out.print("║");
                 for (int i = 0; i < porcentajeOcupacion / 5; i++) {
@@ -450,7 +450,7 @@ public class Funciones {
                 seleccionUsuario = s.nextInt();
                 switch (seleccionUsuario){
                     case 1:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE1 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE1 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioGeneralE1){
@@ -464,7 +464,7 @@ public class Funciones {
                         }
                         break;
                     case 2:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE1 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE1 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioPremiumE1){
@@ -478,7 +478,7 @@ public class Funciones {
                         }
                         break;
                     case 3:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE1 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE1 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioVIPE1){
@@ -499,7 +499,7 @@ public class Funciones {
                 seleccionUsuario = s.nextInt();
                 switch (seleccionUsuario){
                     case 1:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE2 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE2 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioGeneralE2){
@@ -513,7 +513,7 @@ public class Funciones {
                         }
                         break;
                     case 2:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE2 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE2 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioPremiumE2){
@@ -527,7 +527,7 @@ public class Funciones {
                         }
                         break;
                     case 3:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE2 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE2 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioVIPE2){
@@ -548,7 +548,7 @@ public class Funciones {
                 seleccionUsuario = s.nextInt();
                 switch (seleccionUsuario){
                     case 1:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE3 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioGeneralE3 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioGeneralE3){
@@ -562,7 +562,7 @@ public class Funciones {
                         }
                         break;
                     case 2:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE3 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioPremiumE3 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioPremiumE3){
@@ -576,7 +576,7 @@ public class Funciones {
                         }
                         break;
                     case 3:
-                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE3 + " de su cartera (s/n)");
+                        System.out.println("¿Está seguro que desea comprar esta entrada?. Se retirarán " + precioVIPE3 + "€ de su cartera (s/n)");
                         respuesta = s.next();
                         if (respuesta.equals("s")){
                             if (carteraAsistente>precioVIPE3){

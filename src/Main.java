@@ -300,6 +300,21 @@ public class Main {
                                             }
                                             break;
                                         case 4:
+                                            switch (Funciones.menuInvitaAmigo()){
+                                                case 1:
+
+                                                    Funciones.invitaAmigo1();
+
+                                                    break;
+                                                case 2:
+                                                    System.out.println(Funciones.amigos1);
+                                                    break;
+                                                case 3:
+                                                    break;
+                                                default:
+                                                    System.out.println("Opcion incorrecta");
+                                                    break;
+                                            }
                                             break;
                                         case 5:
                                             switch (Funciones.menuConfiguracion()){
@@ -399,6 +414,21 @@ public class Main {
                                             }
                                             break;
                                         case 4:
+                                            switch (Funciones.menuInvitaAmigo()){
+                                                case 1:
+
+                                                    Funciones.invitaAmigo2();
+
+                                                    break;
+                                                case 2:
+                                                    System.out.println(Funciones.amigos2);
+                                                    break;
+                                                case 3:
+                                                    break;
+                                                default:
+                                                    System.out.println("Opcion incorrecta");
+                                                    break;
+                                            }
                                             break;
                                         case 5:
                                             switch (Funciones.menuConfiguracion()){

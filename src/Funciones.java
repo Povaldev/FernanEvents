@@ -13,6 +13,8 @@ public class Funciones {
 
     public static boolean as1InscritoE1 = false, as1InscritoE2 = false, as1InscritoE3 = false, as2InscritoE1 = false, as2InscritoE2 = false, as2InscritoE3 = false;
 
+    public static String amigos1, amigos2;
+
     public static void muestraCategoria() {
         System.out.println("Introduce la categoría del evento");
         System.out.println("1. Arte");
@@ -646,7 +648,7 @@ public class Funciones {
     public static int menuAsistente() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Bienvenido al Asistente 1");
+        System.out.println("Bienvenido al Asistente ");
         System.out.println("1--Mis eventos");
         System.out.println("2--Eventos");
         System.out.println("3--Cartera digital");
@@ -719,6 +721,33 @@ public class Funciones {
 
 
         return nuevaContrasena;
+    }
+
+    public static int menuInvitaAmigo(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("¿Que deseas hacer?");
+        System.out.println("1--Añadir amigo");
+        System.out.println("2--Ver listado de amigos");
+        System.out.println("3--Salir");
+        int opcion = Integer.parseInt(sc.next());
+
+        return opcion;
+    }
+
+    public static void invitaAmigo1(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Dime el correo de tu amigo:");
+        amigos1+=", "+sc.next();
+        System.out.println("Amigo añadido con exito");
+
+    }
+
+    public static void invitaAmigo2(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Dime el correo de tu amigo:");
+        amigos2+=", "+sc.next();
+        System.out.println("Amigo añadido con exito");
+
     }
 //________________________________________________________FUNCIONES MARCOS_______________________________________________________________________
 }

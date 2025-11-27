@@ -13,7 +13,7 @@ public class Funciones {
 
     public static boolean as1InscritoE1 = false, as1InscritoE2 = false, as1InscritoE3 = false, as2InscritoE1 = false, as2InscritoE2 = false, as2InscritoE3 = false;
 
-    public static String amigos1, amigos2;
+    public static String amigos1="", amigos2="";
 
     public static void muestraCategoria() {
         System.out.println("Introduce la categoría del evento");
@@ -737,7 +737,7 @@ public class Funciones {
     public static void invitaAmigo1(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Dime el correo de tu amigo:");
-        amigos1+=", "+sc.next();
+        amigos1+=" || "+sc.next();
         System.out.println("Amigo añadido con exito");
 
     }
@@ -745,7 +745,7 @@ public class Funciones {
     public static void invitaAmigo2(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Dime el correo de tu amigo:");
-        amigos2+=", "+sc.next();
+        amigos2+=" || "+sc.next();
         System.out.println("Amigo añadido con exito");
 
     }
